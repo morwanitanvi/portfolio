@@ -1,5 +1,6 @@
 // import React from "react";
 import Header from "../components/header";
+import ContentCard from "../components/content-card";
 
 const downloadResume = () => {
   // Logic to download resume
@@ -13,19 +14,21 @@ const downloadResume = () => {
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
       <div id="home" className="container mx-auto px-6 pt-24 ">
-        <div className="flex flex-row items-center justify-between w-full">
-          <div className="flex flex-col items-center pt-50 pl-10">
-            <span className="text-xl md:text-xl font-bold text-black mb-6 self-start text-left">
+        <div className="flex md:flex-row flex-col-reverse items-center md:justify-between justify-center w-full">
+          <div className="flex flex-col items-center md:pt-50 ">
+            <span className="md:text-xl font-bold text-black mb-6 md:self-start text-center">
               Hello, I'm Tanvi,
             </span>
 
-            <p className="text-8xl font-bold text-gray-700 mb-8">Copywriter</p>
+            <p className="md:text-8xl text-4xl font-bold text-gray-700 mb-8 text-center md:text-left">
+              Copywriter
+            </p>
 
             <button
-              className="self-start px-8 py-3 my-20 bg text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="md:self-start md:px-8 md:py-3 md:my-20 bg text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
               onClick={() => {
                 downloadResume();
               }}
@@ -34,7 +37,7 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="w-120 h-120 rounded-full bg-gradient-to-r from-purple-400 to-pink-600 mb-8 flex items-center justify-center"></div>
+          <div className="w-40 h-40 rounded-full bg-gradient-to-r from-purple-400 to-pink-600 mb-8 flex items-center justify-center md:w-120 md:h-120"></div>
         </div>
       </div>
 
@@ -48,11 +51,11 @@ const Home = () => {
         }}
       >
         <div className="container px-6 pt-12 pb-12">
-          <h2 className="text-8xl font-bold text-right mb-12 text-gray-800">
+          <h2 className="md:text-8xl text-4xl font-bold md:text-right text-center md:mb-12 mb-5 text-gray-800">
             About Me
           </h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-4xl font-extrabold text-gray-600 mb-6">
+            <p className="md:text-4xl text-2xl md:text-left text-center font-extrabold text-gray-600 mb-6">
               Hi, My name is Tanvi Morwani,
             </p>
             <p className="text-2xl text-gray-600 mb-6">
@@ -67,34 +70,19 @@ const Home = () => {
 
       {/* Projects Section */}
       <div id="projects" className="container mx-auto px-6 py-20">
-        <h2 className="text-8xl font-bold text-left mb-12 text-gray-800">
+        <h2 className="md:text-8xl text-4xl font-bold md:text-left text-center md:mb-12 mb-4 text-gray-800">
           Contents
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3].map((project) => (
-            <div
-              key={project}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-600"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-800">
-                  Project {project}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  A brief description of this amazing project and its key
-                  features.
-                </p>
-                <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                    React
-                  </span>
-                  <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                    TypeScript
-                  </span>
-                </div>
-              </div>
-            </div>
+            <ContentCard
+              item={{
+                key: project,
+                title: `Project ${project} Title`,
+                content: `Project ${project} description`,
+                tags: ["Tag1", "Tag2", "Tag3"],
+              }}
+            />
           ))}
         </div>
       </div>
