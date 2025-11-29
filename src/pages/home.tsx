@@ -1,6 +1,7 @@
 // import React from "react";
 import Header from "../components/header";
 import ContentCard from "../components/content-card";
+import VideoTile from "../components/video-tile";
 
 const downloadResume = () => {
   // Logic to download resume
@@ -68,7 +69,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Projects Section */}
+      {/* Contents Section */}
       <div id="projects" className="container mx-auto px-6 py-20">
         <h2 className="md:text-8xl text-4xl font-bold md:text-left text-center md:mb-12 mb-4 text-gray-800">
           Contents
@@ -87,49 +88,32 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Skills Section */}
+      {/* Intagram Management Section */}
       <div id="skills" className="container mx-auto px-6 py-20 bg-gray-50">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-          Skills
+        <h2 className="md:text-6xl text-3xl font-bold md:text-right text-center md:mb-12 mb-5 text-gray-800">
+          Instagram Management
         </h2>
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div>
           <div>
-            <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-              Frontend
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {[
-                "React",
-                "TypeScript",
-                "Tailwind CSS",
-                "Next.js",
-                "HTML/CSS",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 bg-white rounded-lg shadow text-gray-700"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-              Backend
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {["Node.js", "Python", "PostgreSQL", "MongoDB", "REST APIs"].map(
-                (skill) => (
-                  <span
-                    key={skill}
-                    className="px-4 py-2 bg-white rounded-lg shadow text-gray-700"
-                  >
-                    {skill}
-                  </span>
-                )
-              )}
-            </div>
+            {[
+              "DRmc_dygiqn",
+              "TypeScript",
+              "Tailwind CSS",
+              "Next.js",
+              "HTML/CSS",
+            ].map((skill) => (
+              <VideoTile
+                key={skill}
+                item={{
+                  title: skill,
+                  description: `Instagram Reel on ${skill}`,
+                  content: `This reel showcases my expertise in ${skill} through engaging content and creative storytelling.`,
+                  role: "Content Creator & Manager",
+                  goal: "Increase engagement and followers",
+                  videoUrl: `https://www.instagram.com/reel/${skill}/`,
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
